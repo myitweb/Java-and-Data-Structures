@@ -1,0 +1,290 @@
+import java.lang.*;
+import java.util.*;
+
+public class Calculator
+{
+    private int solution;
+    private int x;
+    private int y;
+    private char operators;
+
+    public Calculator()
+    {
+        solution = 0;
+        Scanner operators = new Scanner(System.in);
+        Scanner operands = new Scanner(System.in);
+    }
+
+    public int addition(int x, int y)
+    {
+       return x + y;
+    }
+    public int subtraction(int x, int y)
+    {
+       return x - y;
+    }
+    public int multiplication(int x, int y)
+    {    
+       return x * y;
+    }
+    public int division(int x, int y)
+    {
+       solution = x / y;
+       return solution;
+    }
+    public void main (String[] args)
+    {
+      System.out.println("What operation? ('+', '-', '*', '/')"); 
+
+      System.out.println("Insert 2 numbers to be subtracted");
+       System.out.println("operand 1: ");
+       x = operands;
+       System.out.println("operand 2: ");
+       y = operands.next();
+      switch(operators)
+      {
+          case('+'):
+            addition(operands);
+            operands.next();
+            break;
+          case('-'):
+            subtraction(operands);
+            operands.next();
+            break;
+          case('*'):
+            multiplication(operands);
+            operands.next();
+            break;
+          case('/'):
+            division(operands);
+            operands.next();
+            break;
+       }
+  }
+}
+
+java calculator
+share|edit|flag
+	
+asked Apr 29 '10 at 1:28
+Kevin Duke
+2,16273864
+	
+3 	
+  	
+	
+What kind of errors are you getting? –  Lars Andren Apr 29 '10 at 1:29
+2 	
+  	
+	
+Thanks for posting your code. However, it also helps a lot when you post the text of the error messages you're getting from the compiler - this makes it easier for people to quickly identify the problem (without having to read the whole code or compile it themselves). –  Greg Hewgill Apr 29 '10 at 1:42
+	
+add a comment
+9 Answers
+active oldest votes
+up vote 2 down vote accepted
+	
+
+package org.com;
+
+import java.lang.*; 
+import java.util.*; 
+
+public class Calculator 
+{ 
+    private int solution; 
+    private static int x; 
+    private static int y; 
+    private char operators; 
+
+    public Calculator() 
+    { 
+        solution = 0; 
+        Scanner operators = new Scanner(System.in); 
+        Scanner operands = new Scanner(System.in); 
+    } 
+
+    public int addition(int x, int y) 
+    { 
+       return x + y; 
+    } 
+    public int subtraction(int x, int y) 
+    { 
+       return x - y; 
+    } 
+    public int multiplication(int x, int y) 
+    {     
+       return x * y; 
+    } 
+    public int division(int x, int y) 
+    { 
+       solution = x / y; 
+       return solution; 
+    } 
+
+    public void calc(int ops){
+         x = 4; 
+         System.out.println("operand 2: "); 
+         y = 5; 
+
+         switch(ops) 
+         { 
+             case(1): 
+               System.out.println(addition(x, y)); 
+
+           //    operands.next(); 
+               break; 
+             case(2): 
+                 System.out.println(subtraction(x, y)); 
+              // operands.next(); 
+               break; 
+             case(3): 
+                 System.out.println(multiplication(x, y)); 
+             //  operands.next(); 
+               break; 
+             case(4): 
+                 System.out.println(division(x, y));
+             //  operands.next(); 
+               break; 
+          } 
+    }
+    public static void main (String[] args) 
+    { 
+      System.out.println("What operation? ('+', '-', '*', '/')");  
+      System.out.println(" Enter 1 for Addition");
+      System.out.println(" Enter 2 for Subtraction");
+      System.out.println(" Enter 3 for Multiplication");
+      System.out.println(" Enter 4 for Division");
+
+       Calculator calc = new Calculator();
+       calc.calc(1);
+
+
+  } 
+} 
+
+This will work
+share|edit|flag
+	
+answered Apr 29 '10 at 8:05
+gmhk
+4,15194185
+	
+add a comment
+up vote 0 down vote
+	
+
+import java.lang.*;
+
+import java.util.*;
+
+
+public class Calculator
+{
+    private int solution;
+    private int x;
+    private int y;
+ private char operators;
+
+    public Calculator()
+    {
+        solution = 0;
+        Scanner operators = new Scanner(System.in);
+        Scanner operands = new Scanner(System.in);
+    }
+
+    public int addition(int x, int y)
+    {
+       return x + y;
+    }
+    public int subtraction(int x, int y)
+    {
+       return x - y;
+    }
+    public int multiplication(int x, int y)
+    {    
+       return x * y;
+    }
+    public int division(int x, int y)
+    {
+       solution = x / y;
+       return solution;
+    }
+    public void main (String[] args)
+    {
+      System.out.println("What operation? ('+', '-', '*', '/')"); 
+
+      System.out.println("Insert 2 numbers to be subtracted");
+       System.out.println("operand 1: ");
+       x = operands;
+       System.out.println("operand 2: ");
+       y = operands.next();
+      switch(operators)
+      {
+          case('+'):
+            addition(operands);
+            operands.next();
+            break;
+          case('-'):
+            subtraction(operands);
+            operands.next();
+            break;
+          case('*'):
+            multiplication(operands);
+            operands.next();
+            break;
+          case('/'):
+            division(operands);
+            operands.next();
+            break;
+       }
+  }
+}
+
+share|edit|flag
+	
+answered Jun 1 '13 at 14:10
+Waruna Wishwanath Usgoda
+1
+	
+add a comment
+up vote 1 down vote
+	
+
+This is all great, but what program are you using to write your java? Maybe you should consider using an IDE like Eclipse, as it can detect errors automatically and also adds imports. (I'm not sure if yours does this) It also tells you what the problem with your program is 'in english'. Also, consider this class as maybe an easier and less complicated way of doing a calculator:
+
+public class Calculator {
+public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    System.out.print("Enter an Operator: ");
+    String in = sc.next();
+    char oper = in.charAt(0);
+
+    System.out.print("Enter a number: ");
+    in = sc.next();
+    double num1 = Double.parseDouble(in);
+
+    System.out.print("Enter another number: ");
+    in = sc.next();
+    double num2 = Double.parseDouble(in);
+
+    if(oper == '+') {
+        double result = num1 + num2;
+        System.out.println(result);
+    } else if(oper == '-') {
+        double result = num1 - num2;
+        System.out.println(result);
+    } else if(oper == 'x') {
+        double result = num1 * num2;
+        System.out.println(result);
+    } else if(oper == '/') {
+        double result = num1 / num2;
+        System.out.println(result);
+    } else {
+        double result = num1 % num2;
+        System.out.println(result);
+    }
+        System.out.println("Hope this helped your mathmatical troubles!");
+}
+
+}
